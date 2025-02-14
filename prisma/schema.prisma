@@ -38,7 +38,6 @@ model User {
   notificationsCreated Notification[] @relation("notificationCreator") // notifications triggered by a user
 }
 
-
 model Post{
   id        String    @id @default(cuid())
   authorId String
@@ -67,7 +66,7 @@ model Comment{
   post Post @relation(fields: [postId],references: [id], onDelete: Cascade)
   notifications Notification[]
 
-  @@index([authorId,postId]) // composite index for faster queries
+  @@index([authorId,postId]) 
 }
 
 model Like {
