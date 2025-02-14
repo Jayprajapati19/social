@@ -33,7 +33,7 @@ export async function syncUser() {
   } catch (error) {
     console.log("Error in syncUser", error);
   }
-}
+};
 
 export async function getUserByClerkId(clerkId: string) {
   return prisma.user.findUnique({
@@ -69,10 +69,7 @@ export async function getDbUserId() {
 export async function getRandomUsers() {
   try {
     const userId = await getDbUserId();
-
     if (!userId) return [];
-
-    // get 3 random users exclude ourselves & users that we already follow
     const randomUsers = await prisma.user.findMany({
       where: {
         AND: [
@@ -162,6 +159,5 @@ export async function toggleFollow(targetUserId: string) {
     console.log("Error in toggleFollow", error);
     return { success: false, error: "Error toggling follow" };
   }
-}
-
+};
 

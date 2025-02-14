@@ -16,7 +16,6 @@ export const ourFileRouter = {
       const { userId } = await auth();
       if (!userId) throw new Error("Unauthorized");
 
-      // whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId };
     })
     .onUploadComplete(async ({ metadata, file }) => {
