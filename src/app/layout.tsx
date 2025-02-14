@@ -19,7 +19,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Socially",
+  title: "Linksta",
   description: "A modern social media application powered by Next.js",
 };
 

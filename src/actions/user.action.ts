@@ -58,7 +58,10 @@ export async function getDbUserId() {
 
   const user = await getUserByClerkId(clerkId);
 
-  if (!user) throw new Error("User not found");
+  if (!user) {
+    console.log("User not found");
+    return null;
+  }
 
   return user.id;
 }
@@ -160,3 +163,5 @@ export async function toggleFollow(targetUserId: string) {
     return { success: false, error: "Error toggling follow" };
   }
 }
+
+
